@@ -140,7 +140,8 @@ app.post("/register", async function (req, res) {
       });
       let token = jwt.sign({ email: email, userid: user._id }, "sssssss");
       res.cookie("token", token);
-      res.send("user registered sucessfully");
+      // res.send("user registered sucessfully");
+      res.redirect("/login");
     });
   });
 });
@@ -174,6 +175,6 @@ function isLoggedIn(req, res, next) {
   }
 }
 
-app.listen(3000, function () {
-  console.log("Server is running on port 3000");
+app.listen(3002, function () {
+  console.log("Server is running on port 3002");
 });
